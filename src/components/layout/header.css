@@ -1,0 +1,125 @@
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #495e57;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-bar {
+  border-bottom: 2px solid #495e57;
+  width: 100%;
+  max-width: none;
+  padding: 0 6%;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  height: 6.25rem;
+}
+
+.nav-bar-logo {
+  grid-column: 1;
+  justify-self: start;
+  align-self: center;
+  line-height: 0;
+}
+
+.nav-bar-logo img {
+  width: 10rem;
+  height: 2.75rem;
+}
+
+.nav-bar-hamburger {
+  grid-column: 2;
+  display: none;
+  cursor: pointer;
+  color: #495e57;
+  background-color: transparent;
+}
+
+.nav-bar-hamburger svg {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.nav-bar-links {
+  grid-column: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 1.5rem;
+  transition: left 300ms linear;
+}
+
+.nav-bar-links li {
+  list-style-type: none;
+  font-weight: 600;
+}
+
+.nav-bar-links a {
+  height: max-content;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 992px) {
+  .hover-underline-animation:after {
+    bottom: -1px;
+  }
+
+  .nav-bar {
+    grid-template-columns: auto auto;
+  }
+
+  .nav-bar-hamburger {
+    justify-self: end;
+    display: inline-flex;
+    border: none;
+  }
+
+  .nav-bar-links.expanded {
+    justify-content: flex-start;
+    align-items: flex-start;
+    left: 0;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  .nav-bar-links.expanded li {
+    width: 100%;
+    border-bottom: 1px solid #495e57;
+  }
+
+  .nav-bar-links.expanded li a {
+    display: block;
+    padding: 1rem;
+  }
+
+  .nav-bar-links.expanded li:hover {
+    background-color: #ebebeb;
+  }
+
+  .nav-bar-links {
+    position: absolute;
+    flex-direction: column;
+    width: 75%;
+    max-width: 16rem;
+    height: 100vh;
+    top: 0;
+    left: -75%;
+    background-color: #ffffff;
+    z-index: 100;
+  }
+}

@@ -1,0 +1,8 @@
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 0;
+  min-height: calc(100vh - 6.25rem - 18rem);
+}
